@@ -17,10 +17,12 @@ class Main extends Component {
 
     render() {
         return (
-            <View>
+            <View style={styles.container}>
                 <TabNavigator tabBarStyle={styles.tab}>
                     <TabNavigator.Item
                         title='首页'
+                        titleStyle={styles.tab_title_n}
+                        selectedTitleStyle={styles.tab_title_p}
                         renderIcon={() => <Image style={styles.img} source={require('../img/icon_home_n.png')}/>}
                         renderSelectedIcon={() => <Image style={styles.img}
                                                          source={require('../img/icon_home_p.png')}/>}
@@ -33,17 +35,21 @@ class Main extends Component {
                     {/*收藏*/}
                     <TabNavigator.Item
                         title={'收藏'}
+                        titleStyle={styles.tab_title_n}
+                        selectedTitleStyle={styles.tab_title_p}
                         renderIcon={() => <Image style={styles.img} source={require('../img/icon_store_n.png')}/>}
                         renderSelectedIcon={() => <Image style={styles.img}
                                                          source={require('../img/icon_store_p.png')}/>}
                         onPress={()=>this.setState({selectTab:'store'})}
                         selected={this.state.selectTab==='store'}
-                    ><Home></Home>
+                    ><Store></Store>
                     </TabNavigator.Item>
 
                     {/*热点*/}
                     <TabNavigator.Item
                         title={'热点'}
+                        titleStyle={styles.tab_title_n}
+                        selectedTitleStyle={styles.tab_title_p}
                         renderIcon={() => <Image style={styles.img} source={require('../img/icon_wel_n.png')}/>}
                         renderSelectedIcon={() => <Image style={styles.img}
                                                          source={require('../img/icon_wel_p.png')}/>}
@@ -56,6 +62,8 @@ class Main extends Component {
                     {/*我的*/}
                     <TabNavigator.Item
                         title={'我的'}
+                        titleStyle={styles.tab_title_n}
+                        selectedTitleStyle={styles.tab_title_p}
                         renderIcon={() => <Image style={styles.img} source={require('../img/icon_mine_n.png')}/>}
                         renderSelectedIcon={() => <Image style={styles.img}
                                                          source={require('../img/icon_mine_p.png')}/>}
@@ -73,14 +81,21 @@ module.exports = Main;
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: '#ff0'
+        flex:1,
     },
     img: {
         width: 25,
         height: 25,
     },
     tab:{
-        position:'absolute',
 
     },
+    tab_title_n:{
+        fontSize:12,
+    },
+    tab_title_p:{
+        fontSize:12,
+        color:'#f00',
+    },
+
 })
